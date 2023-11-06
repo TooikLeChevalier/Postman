@@ -1,0 +1,1813 @@
+{
+	"info": {
+		"_postman_id": "892fd24a-3227-4bc0-b88e-a5b04f7d909b",
+		"name": "T-POO-700-PAR_7",
+		"description": "Projet Time manager equipe PAR_7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27965080-892fd24a-3227-4bc0-b88e-a5b04f7d909b"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Récupère le user par son id",
+									"id": "a18fafe1-c8fd-427b-bb4b-7e5e43e9ff87",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "928da620-f83a-43ed-9b56-6a1c47af089b",
+											"name": "Succès - utilisateur trouvé",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "d389e290-257d-4aeb-b802-e28154613a47",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "update les information de l'utilisateur",
+									"id": "81a258e4-6308-404c-9fd6-645f92f527d6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "52673cf9-0eba-4bef-a820-1c4f0c945d90",
+											"name": "Succès - information de l'utilisateur mis à jour",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "b62531f0-1156-4259-b699-437240a3c691",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Supprime une user",
+									"id": "25e071d6-92fc-4601-a5d9-a82b38638fb8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "0e6abaee-2a42-4a12-91db-e598788a213b",
+											"name": "Succès - utilisateur supprimé",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "ce391f69-dfc5-4e2c-9f43-79ce39a63d9a",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "93924a30-9d0c-4b5a-b41b-1c1730f7a811"
+						},
+						{
+							"name": "sign_in",
+							"item": [
+								{
+									"name": "/api/users/sign_in",
+									"id": "b039b0a4-0f92-42c5-830e-ed597507dc93",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/sign_in",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"sign_in"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "bd3d4ad8-f815-438b-a64a-70d24b01e663",
+											"name": "Succès - utilisateur supprimé",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/sign_in",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"sign_in"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "85db902a-2a43-4355-9c10-80aeeec3a11c",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/sign_in",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"sign_in"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "529118c4-c5df-49d4-b0ad-ee74e7084300"
+						},
+						{
+							"name": "Rechercher des utilisateurs par email et nom",
+							"id": "808f327e-e3da-4991-98e9-f1f10357b44c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users?email=<string>&name=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"description": "Adresse e-mail de l'utilisateur",
+											"key": "email",
+											"value": "<string>"
+										},
+										{
+											"description": "Nom de l'utilisateur",
+											"key": "name",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fdb2ba64-6277-469e-863c-c185f81b5ede",
+									"name": "Succès - Liste des utilisateurs trouvés",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users?email=<string>&name=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"description": "Adresse e-mail de l'utilisateur",
+													"key": "email",
+													"value": "<string>"
+												},
+												{
+													"description": "Nom de l'utilisateur",
+													"key": "name",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "3654f62a-1eae-423c-8b42-da4c4994fa98",
+									"name": "Requête incorrecte",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users?email=<string>&name=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"description": "Adresse e-mail de l'utilisateur",
+													"key": "email",
+													"value": "<string>"
+												},
+												{
+													"description": "Nom de l'utilisateur",
+													"key": "name",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Création d'un utilisateur",
+							"id": "3c07e8e5-fb6f-4d4e-9506-b6cc448730ea",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a6b1153f-4b2f-4016-b700-9abda253d5c3",
+									"name": "Succès - utilisateur créé",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "9d60d867-0e53-468f-97b3-7b08f28a6c22",
+									"name": "Requête incorrecte",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "9700fbcd-8334-4cf7-ad9b-f005b7728698"
+				},
+				{
+					"name": "clocks",
+					"item": [
+						{
+							"name": "{users_id}",
+							"item": [
+								{
+									"name": "Création d'une clock",
+									"id": "a8ba9afc-7798-4374-8ccd-5d39c6e68bc9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"status\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clocks/:users_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clocks",
+												":users_id"
+											],
+											"variable": [
+												{
+													"key": "users_id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "dd8e0445-6bdc-476a-9ce8-7941458aaad1",
+											"name": "Succès - clock créé",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"status\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clocks/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clocks",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "0c49dad7-68de-48b4-83ae-baad6b34a264",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"status\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clocks/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clocks",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Récupération des clocks d'un utilisateur",
+									"id": "c7b6acb3-4636-40f7-818f-cbecc10bd631",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/clocks/:users_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clocks",
+												":users_id"
+											],
+											"variable": [
+												{
+													"key": "users_id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "7b76eaa6-988f-4dfa-842d-89e4eb2759f2",
+											"name": "Succès - clock d'un user Récupéré",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/clocks/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clocks",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "3f3d33c1-27cc-4e46-ac16-e55fbd3c0618",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/clocks/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clocks",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "14e4a804-8a1b-43ba-a50e-8c1187c7246c"
+						}
+					],
+					"id": "e176abd9-3634-4a68-83de-f46c1f3376f2"
+				},
+				{
+					"name": "roles",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Récupération du role",
+									"id": "86b1cb63-64ad-44ce-a5cb-068b91752f33",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/roles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "500e4631-5ac5-4821-a896-412934f566bb",
+											"name": "Succès - role Récupéré",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/roles/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"roles",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "3d704017-13fa-41dd-b687-7bd6f6c86958",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/roles/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"roles",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "89e1f1d8-8bb9-48a6-8afa-b27f146b5e18"
+						},
+						{
+							"name": "Création d'une role",
+							"id": "c448a456-77b6-42d4-a10a-c89f29aa08fe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/roles",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"roles"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cf535c82-a8cd-4ceb-94e9-99fa7b157a1f",
+									"name": "Succès - role créé",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/roles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"roles"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "9121247a-581d-44f8-bbbe-2b28a1627aa8",
+									"name": "Requête incorrecte",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/roles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"roles"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "dd46e292-1bb8-4ecf-80d1-ff0d8ff28c13"
+				},
+				{
+					"name": "workingtimes",
+					"item": [
+						{
+							"name": "{users_id}",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "Récupération d'un workingtimes",
+											"id": "d4c9cfad-3ac3-452b-85d5-b39e14885a76",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:users_id/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":users_id",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "users_id",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "9c839942-f12e-44a8-b1c5-5f17a207d533",
+													"name": "Succès - workingtimes récupéré",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/workingtimes/:users_id/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"workingtimes",
+																":users_id",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "users_id"
+																},
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "349c1015-7daa-476c-9d28-e4b9aedd2d5d",
+													"name": "Requête incorrecte",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/workingtimes/:users_id/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"workingtimes",
+																":users_id",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "users_id"
+																},
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									],
+									"id": "9cdcf8b8-d6ad-405e-ae0d-4d97dbb3060e"
+								},
+								{
+									"name": "Création d'un workingtimes",
+									"id": "ff58c082-6a92-447d-9736-105d79ae4552",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workingtimes",
+												":users_id"
+											],
+											"variable": [
+												{
+													"key": "users_id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "afea01af-15e6-4bd8-893b-9e92730e756f",
+											"name": "Succès - workingtimes créé",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "04157c8a-42b0-40ae-b298-b00ba85459c3",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Récupération des workingtimes",
+									"id": "11acfb97-d500-42fb-ae46-ee8249f8e711",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workingtimes",
+												":users_id"
+											],
+											"variable": [
+												{
+													"key": "users_id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "47e3212a-27b4-4704-af37-c5953f1c2cda",
+											"name": "Succès - list des workingtimes récupéré",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "ae461ff8-17bc-45e3-b806-e1d78246510c",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":users_id"
+													],
+													"variable": [
+														{
+															"key": "users_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "10e57e3c-10c8-4e11-881e-254236d87ad3"
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "update d'un workingtimes",
+									"id": "a73fb042-502f-4893-9cee-c69c2003ee78",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/workingtimes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workingtimes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ba16144d-ebaf-435c-88a6-747014e9d8de",
+											"name": "Succès - workingtimes update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "d00a7346-4244-4481-a62d-97a91f435806",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"started\": \"<dateTime>\",\n\t\"ended\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "supprimer un workingtimes",
+									"id": "3959a3e3-a554-4ccd-93a3-dcb9ce81cc27",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/workingtimes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workingtimes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a37c1812-f547-45db-ae44-946617afc957",
+											"name": "Succès - workingtimes delete",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "a60e3bd3-48d3-42ee-a305-9589b2c40c08",
+											"name": "Requête incorrecte",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/workingtimes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workingtimes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "2d5d4132-94de-4d3e-9052-2d430d019f57"
+						}
+					],
+					"id": "9f86ed37-7f0f-4143-8a3a-1ab85cb40ff2"
+				}
+			],
+			"id": "1e50b141-88ba-49dc-9b6b-384c3be87bf0"
+		}
+	],
+	"variable": [
+		{
+			"id": "e6faa690-c43f-42d4-87dc-7bf695fbd7e1",
+			"key": "baseUrl",
+			"value": "http://localhost:4000"
+		}
+	]
+}

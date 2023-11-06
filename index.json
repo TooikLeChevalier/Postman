@@ -1,0 +1,513 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "T-POO-700-PAR_7",
+        "description": "Projet Time manager equipe PAR_7"
+    },
+    "servers": [
+        {
+            "description": "Localhost pour les TU github Action",
+            "url": "http://localhost:4000"
+        },
+        {
+            "description": "TU prod",
+            "url": ""
+        }
+    ],
+    "paths": {
+        "/api/users": {
+            "get": {
+                "summary": "Rechercher des utilisateurs par email et nom",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "description": "Adresse e-mail de l'utilisateur",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "description": "Nom de l'utilisateur",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès - Liste des utilisateurs trouvés"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Création d'un utilisateur",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/usersRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - utilisateur créé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "summary": "Récupère le user par son id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès - utilisateur trouvé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            },
+            "put": {
+                "summary": "update les information de l'utilisateur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/usersRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - information de l'utilisateur mis à jour"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Supprimer un user",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/usersRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - utilisateur supprimé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/users/sign_in": {
+            "post": {
+                "summary": "Connexion d'un utilisateur",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "hash_password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "email",
+                                    "hash_password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - utilisateur supprimé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/clocks/{users_id}": {
+            "post": {
+                "summary": "Création d'une clock",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "status"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - clock créé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Récupération des clocks d'un utilisateur",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès - clock d'un user Récupéré"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/roles": {
+            "post": {
+                "summary": "Création d'une role",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - role créé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/roles/{id}": {
+            "get": {
+                "summary": "Récupération du role",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès - role Récupéré"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/workingtimes/{users_id}": {
+            "post": {
+                "summary": "Création d'un workingtimes",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workingtimesRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - workingtimes créé"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Récupération des workingtimes",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workingtimesRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - list des workingtimes récupéré"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/workingtimes/{users_id}/{id}": {
+            "get": {
+                "summary": "Récupération d'un workingtimes",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required":true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès - workingtimes récupéré"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        },
+        "/api/workingtimes/{id}": {
+            "put": {
+                "summary": "update d'un workingtimes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/workingtimesRequestBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succès - workingtimes update"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "supprimer un workingtimes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès - workingtimes delete"
+                    },
+                    "400": {
+                        "description": "Requête incorrecte"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "usersRequestBody": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "hash_password": {
+                        "type": "string"
+                    },
+                    "disable": {
+                        "type": "boolean"
+                    },
+                    "roles_id": {
+                        "type": "integer"
+                    },
+                    "teams": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "start_work": {
+                        "type": "string",
+                        "format": "time"
+                    },
+                    "end_work": {
+                        "type": "string",
+                        "format": "time"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "hash_password",
+                    "roles_id",
+                    "start_work",
+                    "end_work"
+                ]
+            },
+            "workingtimesRequestBody": {
+                "type": "object",
+                "properties": {
+                    "started": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "ended": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "started",
+                    "ended"
+                ]
+            }
+        }
+    }
+}

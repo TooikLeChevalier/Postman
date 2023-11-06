@@ -9,7 +9,7 @@ id = 5e66d08e-ca59-4c34-a277-0ebb021277a6
 
 [config.relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"27965080-f967751b-00ec-4e95-8730-a315a25133cc","path":"testing.json","metaData":{}}
+files[] = {"id":"27965080-892fd24a-3227-4bc0-b88e-a5b04f7d909b","path":"T-POO-700-PAR_7.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
@@ -18,3 +18,4 @@ files[] = {"path":"index.json","metaData":{}}
 
 [config.relations.apiDefinition.metaData]
 type = openapi:3
+rootFiles[] = index.json
