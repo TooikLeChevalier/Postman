@@ -123,7 +123,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<integer>\",\n\t\t\"<integer>\"\n\t]\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -259,7 +259,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<integer>\",\n\t\t\"<integer>\"\n\t]\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -630,7 +630,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+									"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<integer>\",\n\t\t\"<integer>\"\n\t]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -652,7 +652,7 @@
 							"response": [
 								{
 									"id": "a6b1153f-4b2f-4016-b700-9abda253d5c3",
-									"name": "Succès - utilisateur créé",
+									"name": "Succès - utilisateur créé avec tout les paramètres",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -663,7 +663,46 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<string>\",\n\t\t\"<string>\"\n\t]\n}",
+											"raw": "{\n    \"name\": \"Username1\",\n    \"email\": \"email@Valide.com\",\n    \"hash_password\": \"PWD\",\n    \"roles_id\": 1,\n    \"start_work\": \"09:00:00\",\n    \"end_work\": \"18:00:00\",\n    \"disable\": false,\n    \"teams\": [\n        1,\n        2\n    ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "8dae9f45-e8d5-4731-829f-3b2e1bce6909",
+									"name": "Succès - utilisateur créé avec uniquement les paramètres requis",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Username2\",\n    \"email\": \"email2@Valide.com\",\n    \"hash_password\": \"PWD\",\n    \"roles_id\": 1,\n    \"start_work\": \"07:00:00\",\n    \"end_work\": \"15:00:00\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
