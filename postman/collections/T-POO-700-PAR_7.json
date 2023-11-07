@@ -52,10 +52,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/users/:id",
+													"raw": "http://localhost:4000/api/users/:id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"users",
@@ -173,10 +175,12 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/users/:id",
+													"raw": "http://localhost:4000/api/users/:id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"users",
@@ -309,10 +313,12 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/users/:id",
+													"raw": "http://localhost:4000/api/users/:id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"users",
@@ -444,10 +450,12 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/users/sign_in",
+													"raw": "http://localhost:4000/api/users/sign_in",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"users",
@@ -547,10 +555,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/users?email=<string>&name=<string>",
+											"raw": "http://localhost:4000/api/users?email=<string>&name=<string>",
+											"protocol": "http",
 											"host": [
-												"{{baseUrl}}"
+												"localhost"
 											],
+											"port": "4000",
 											"path": [
 												"api",
 												"users"
@@ -672,10 +682,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/users",
+											"raw": "http://localhost:4000/api/users",
+											"protocol": "http",
 											"host": [
-												"{{baseUrl}}"
+												"localhost"
 											],
+											"port": "4000",
 											"path": [
 												"api",
 												"users"
@@ -844,10 +856,12 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/clocks/:users_id",
+													"raw": "http://localhost:4000/api/clocks/:users_id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"clocks",
@@ -950,10 +964,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/clocks/:users_id",
+													"raw": "http://localhost:4000/api/clocks/:users_id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"clocks",
@@ -1019,6 +1035,35 @@
 							"item": [
 								{
 									"name": "Récupération du role",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "ef4f83a0-dd72-4552-b269-6e6b27242ffe",
+												"exec": [
+													"// Récupère les données du fichier de données",
+													"var rolesID = pm.iterationData.get(\"rolesID\");",
+													"",
+													"// Associe les données aux variables de chemin",
+													"pm.environment.set('rolesID', rolesID);",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "21957438-a25e-47bc-8e49-a4325777f79c",
+												"exec": [
+													"pm.test(\"200 Get Roles\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "86b1cb63-64ad-44ce-a5cb-068b91752f33",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -1039,7 +1084,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "<integer>",
+													"value": "{{rolesID}}",
 													"description": "(Required) "
 												}
 											]
@@ -1053,10 +1098,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/roles/:id",
+													"raw": "http://localhost:4000/api/roles/:id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"roles",
@@ -1113,6 +1160,20 @@
 						},
 						{
 							"name": "Création d'une role",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8bdd12ca-52f4-4ae0-9922-fc5494681f51",
+										"exec": [
+											"pm.test(\"201 Created Roles\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "c448a456-77b6-42d4-a10a-c89f29aa08fe",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1127,7 +1188,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"<string>\"\n}",
+									"raw": "{\n    \"roles\": {\n        \"name\": \"{{roles_name}}\"\n    }\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1169,10 +1230,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/roles",
+											"raw": "http://localhost:4000/api/roles",
+											"protocol": "http",
 											"host": [
-												"{{baseUrl}}"
+												"localhost"
 											],
+											"port": "4000",
 											"path": [
 												"api",
 												"roles"
@@ -1281,10 +1344,12 @@
 														"method": "GET",
 														"header": [],
 														"url": {
-															"raw": "{{baseUrl}}/api/workingtimes/:users_id/:id",
+															"raw": "http://localhost:4000/api/workingtimes/:users_id/:id",
+															"protocol": "http",
 															"host": [
-																"{{baseUrl}}"
+																"localhost"
 															],
+															"port": "4000",
 															"path": [
 																"api",
 																"workingtimes",
@@ -1413,10 +1478,12 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+													"raw": "http://localhost:4000/api/workingtimes/:users_id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"workingtimes",
@@ -1539,10 +1606,12 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/workingtimes/:users_id",
+													"raw": "http://localhost:4000/api/workingtimes/:users_id",
+													"protocol": "http",
 													"host": [
-														"{{baseUrl}}"
+														"localhost"
 													],
+													"port": "4000",
 													"path": [
 														"api",
 														"workingtimes",
@@ -1842,9 +1911,31 @@
 			"id": "1e50b141-88ba-49dc-9b6b-384c3be87bf0"
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0d2b6654-a636-4dd1-ab4d-ee1e122f51f1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6f1fd578-91ca-4756-a621-6b603d6d9f63",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "e6faa690-c43f-42d4-87dc-7bf695fbd7e1",
+			"id": "84b26476-7eb8-47e7-b155-e083e5dce56f",
 			"key": "baseUrl",
 			"value": "http://localhost:4000"
 		}

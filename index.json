@@ -256,13 +256,18 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": {
-                                        "type": "string"
+                                    "roles": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                            "type": "string",
+                                            "example": "{{roles_name}}"
+                                            }
+                                        },
+                                        "required": ["name"]
                                     }
                                 },
-                                "required": [
-                                    "name"
-                                ]
+                                "required": ["roles"]
                             }
                         }
                     }
@@ -470,7 +475,7 @@
                     "teams": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "type": "integer"
                         }
                     },
                     "start_work": {
