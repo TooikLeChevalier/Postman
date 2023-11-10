@@ -457,34 +457,39 @@
             "usersRequestBody": {
                 "type": "object",
                 "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "email": {
-                        "type": "string"
-                    },
-                    "hash_password": {
-                        "type": "string"
-                    },
-                    "disable": {
-                        "type": "boolean"
-                    },
-                    "roles_id": {
-                        "type": "integer"
-                    },
-                    "teams": {
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
+                    "users": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "hash_password": {
+                                "type": "string"
+                            },
+                            "disable": {
+                                "type": "boolean"
+                            },
+                            "roles_id": {
+                                "type": "integer"
+                            },
+                            "teams": {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer"
+                                }
+                            },
+                            "start_work": {
+                                "type": "string",
+                                "format": "time"
+                            },
+                            "end_work": {
+                                "type": "string",
+                                "format": "time"
+                            }
                         }
-                    },
-                    "start_work": {
-                        "type": "string",
-                        "format": "time"
-                    },
-                    "end_work": {
-                        "type": "string",
-                        "format": "time"
                     }
                 },
                 "required": [

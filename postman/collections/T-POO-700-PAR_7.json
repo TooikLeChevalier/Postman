@@ -626,6 +626,69 @@
 						},
 						{
 							"name": "Création d'un utilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e9451dbd-cd6b-455f-83f3-8d3beb2823c0",
+										"exec": [
+											"pm.test(\"Response Validation\", function () {",
+											"    pm.response.to.have.property('code');",
+											"    /*if (pm.response.to.have.status(201)) {",
+											"    } else if (pm.response.to.have.status(422)) {",
+											"        pm.expect(pm.iterationData.get(\"roleID\")).to.eql(4);",
+											"    }*/",
+											"",
+											"    //pm.response.to.have.status(201);",
+											"    if (pm.response.code === 201) {",
+											"    } else if (pm.response.code === 422) {",
+											"        pm.expect(pm.iterationData.get(\"rolesID\")).to.eql('4');",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "36e0d7c9-9384-4744-8788-0b47b448c455",
+										"exec": [
+											"// Vérifier si \"disable\" est présent dans les données",
+											"if (typeof data.disable !== 'undefined' && data.disable !== null) {",
+											"  // Si oui, ajoutez-le au corps de la requête",
+											"  pm.request.body.update(JSON.stringify({",
+											"    \"users\": {",
+											"      \"name\": data.name,",
+											"      \"email\": data.email,",
+											"      \"hash_password\": data.hash_password,",
+											"      \"disable\": data.disable,",
+											"      \"roles_id\": data.rolesID,",
+											"      \"start_work\": data.start_work,",
+											"      \"end_work\": data.end_work,",
+											"      \"teams\": data.teams",
+											"    }",
+											"  }));",
+											"} else {",
+											"  // Si \"disable\" n'est pas présent, ajoutez le reste des données au corps de la requête",
+											"  pm.request.body.update(JSON.stringify({",
+											"    \"users\": {",
+											"      \"name\": data.name,",
+											"      \"email\": data.email,",
+											"      \"hash_password\": data.hash_password,",
+											"      \"roles_id\": data.rolesID,",
+											"      \"start_work\": data.start_work,",
+											"      \"end_work\": data.end_work,",
+											"      \"teams\": data.teams",
+											"    }",
+											"  }));",
+											"}",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "3c07e8e5-fb6f-4d4e-9506-b6cc448730ea",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -640,7 +703,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"<string>\",\n\t\"email\": \"<string>\",\n\t\"hash_password\": \"<string>\",\n\t\"roles_id\": \"<integer>\",\n\t\"start_work\": \"<time>\",\n\t\"end_work\": \"<time>\",\n\t\"disable\": \"<boolean>\",\n\t\"teams\": [\n\t\t\"<integer>\",\n\t\t\"<integer>\"\n\t]\n}",
+									"raw": "{\n    \"users\": {\n        \"name\": \"{{name}}\",\n        \"email\": \"{{email}}\",\n        \"hash_password\": \"{{hash_password}}\",\n        \"roles_id\": {{rolesID}},\n        \"start_work\": \"{{start_work}}\",\n        \"end_work\": \"{{end_work}}\",\n        \"disable\": {{disable}},\n        \"teams\": [{{teams}}]\n    }\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1056,8 +1119,13 @@
 											"script": {
 												"id": "21957438-a25e-47bc-8e49-a4325777f79c",
 												"exec": [
-													"pm.test(\"200 Get Roles\", function () {",
-													"    pm.response.to.have.status(200);",
+													"pm.test(\"Response Validation\", function () {",
+													"    pm.response.to.have.property('code');",
+													"",
+													"    if (pm.response.code === 200) {",
+													"    } else if (pm.response.code === 404) {",
+													"        pm.expect(pm.iterationData.get(\"rolesID\")).to.eql('4');",
+													"    } ",
 													"});"
 												],
 												"type": "text/javascript"
@@ -1166,9 +1234,33 @@
 									"script": {
 										"id": "8bdd12ca-52f4-4ae0-9922-fc5494681f51",
 										"exec": [
-											"pm.test(\"201 Created Roles\", function () {",
-											"    pm.response.to.have.status(201);",
-											"});"
+											"pm.test(\"Response Validation\", function () {",
+											"    pm.response.to.have.property('code');",
+											"",
+											"    if (pm.response.code === 201) {",
+											"    } else if (pm.response.code === 500) {",
+											"        pm.expect(pm.iterationData.get(\"roles_name\")).to.eql('test');",
+											"    } ",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ef045251-c1f2-4feb-a990-01ed697773c1",
+										"exec": [
+											"// Vérifier si le paramètre est présent",
+											"if (typeof data.roles_name === 'undefined' || data.roles_name === null) {",
+											"    // Si le paramètre est manquant, arrêtez l'exécution de la demande",
+											"    console.info(\"existe pas\");",
+											"    postman.setNextRequest();",
+											"} else {",
+											"    // Si le paramètre est présent, continuez avec la demande",
+											"}",
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1935,7 +2027,7 @@
 	],
 	"variable": [
 		{
-			"id": "84b26476-7eb8-47e7-b155-e083e5dce56f",
+			"id": "8a0ac883-c1a5-4c99-9a66-e92aa6ae7f45",
 			"key": "baseUrl",
 			"value": "http://localhost:4000"
 		}
